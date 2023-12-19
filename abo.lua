@@ -167,7 +167,7 @@ local GetSnipes = function(Update)
         if atrx_Sniper.Pets[v.Item["_data"].id] or GetMatch(v.Item["_data"].id) then
             local SnipingID = atrx_Sniper.Pets[v.Item["_data"].id] or GetMatch(v.Item["_data"].id)
             local Price = v.DiamondCost;
-            print(math.round(v.DiamondCost / (v.Item["_data"]["_am"] or 1)))
+            print(v.Item["_data"].id, math.round(v.DiamondCost / (v.Item["_data"]["_am"] or 1)))
             if math.round(v.DiamondCost / (v.Item["_data"]["_am"] or 1)) <= SnipingID.MAX_PRICE and GetDiamonds() >= v.DiamondCost and MeetsForm(GetPetForm(v.Item["_data"]), SnipingID.FORM) then
                 hits[#hits + 1] = {
                     NAME = v.Item["_data"].id,
