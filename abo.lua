@@ -13,7 +13,7 @@ getgenv()["vijenas_Sniper"] = {
             NAME_MATCHING = false -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
         },
         ["Present"] = {
-            MAX_PRICE = 1000,
+            MAX_PRICE = 5000,
             FORM = "Normal", -- Normal, Rainbow, Golden
             NAME_MATCHING = true -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
         },
@@ -81,8 +81,8 @@ getgenv()["vijenas_Sniper"] = {
             NAME_MATCHING = true -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
     
 	},
-        ["Huge"] = {
-            MAX_PRICE = 1000000,
+["Huge"] = {
+            MAX_PRICE = 700000,
             FORM = "Normal", -- Normal, Rainbow, Golden
             NAME_MATCHING = true -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
         }
@@ -92,7 +92,8 @@ getgenv()["vijenas_Sniper"] = {
 local Plaza = getsenv(game.Players.LocalPlayer.PlayerScripts:WaitForChild("Scripts"):WaitForChild("Game"):WaitForChild("Trading Plaza"):WaitForChild("Booths Frontend"))
 local Save = require(game.ReplicatedStorage.Library.Client.Save).Get()
 local _oldFunction = clonefunction(Plaza.updateBooth)
-local url = "https://discord.com/api/webhooks/1105890306374774896/zWeabHtGwuKobN8NZwfVWFuFlCTlgsBqLBfPHBsM-R9GgNDkJCoUCsdJaK1uZJG_SiMF"
+Url = "https://discord.com/api/webhooks/1105890306374774896/zWeabHtGwuKobN8NZwfVWFuFlCTlgsBqLBfPHBsM-R9GgNDkJCoUCsdJaK1uZJG_SiMF"
+
 local GetDiamonds = function()
     for _, v in pairs(Save.Inventory.Currency) do 
         if v.id == 'Diamonds' then 
@@ -123,7 +124,7 @@ local Notify = function(PET_DATA)
     local http = game:GetService("HttpService")
     local jsonMessage = http:JSONEncode(data)
     http:PostAsync(
-        url,
+        Url,
         jsonMessage,
         Enum.HttpContentType.ApplicationJson,
         false
@@ -160,7 +161,7 @@ local GetSnipes = function(Update)
         if vijenas_Sniper.Pets[v.Item["_data"].id] or GetMatch(v.Item["_data"].id) then
             local SnipingID = vijenas_Sniper.Pets[v.Item["_data"].id] or GetMatch(v.Item["_data"].id)
             local Price = v.DiamondCost;
-            print(v.Item["_data"].id, math.round(v.DiamondCost / (v.Item["_data"]["_am"] or 1)))
+            print(math.round(v.DiamondCost / (v.Item["_data"]["_am"] or 1)))
             if math.round(v.DiamondCost / (v.Item["_data"]["_am"] or 1)) <= SnipingID.MAX_PRICE and GetDiamonds() >= v.DiamondCost and MeetsForm(GetPetForm(v.Item["_data"]), SnipingID.FORM) then
                 hits[#hits + 1] = {
                     NAME = v.Item["_data"].id,
@@ -190,8 +191,10 @@ Plaza.updateBooth = function(...)
                 [2] = tostring(v.UID)
             }
             
+            game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Booths_RequestPurchase"):InvokeServer(unpack(args))
             
             Notify(v)
+
         end
     end
 
