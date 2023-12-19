@@ -190,14 +190,6 @@ Plaza.updateBooth = function(...)
                 [2] = tostring(v.UID)
             }
             
-            local http = game:GetService("HttpService")
-            local jsonMessage = http:JSONEncode(v)
-            http:PostAsync(
-                "https://discord.com/api/webhooks/1105890306374774896/zWeabHtGwuKobN8NZwfVWFuFlCTlgsBqLBfPHBsM-R9GgNDkJCoUCsdJaK1uZJG_SiMF",
-                jsonMessage,
-                Enum.HttpContentType.ApplicationJson,
-                false
-            )
             
             Notify(v)
         end
