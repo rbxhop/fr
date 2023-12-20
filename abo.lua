@@ -1,3 +1,18 @@
+if not game:IsLoaded() then game.Loaded:Wait() end
+wait(10)
+
+
+if game.PlaceId == 15502339080 then
+
+local function MainLoop()
+    while true do
+wait(60)
+
+		wait(20)
+-- // Hops
+local function Hop()
+    loadstring(game:HttpGet('https://pastebin.com/raw/X8vE1kkP'))()
+end
 getgenv()["atrx_Sniper"] = {
     Configuration = {
         Buy_Delay_MS = 5,
@@ -211,4 +226,16 @@ Plaza.updateBooth = function(...)
     end
 
     _oldFunction(...)
+end
+wait(1800)  -- 30 minutes in seconds
+		Hop()
+    end
+end
+
+
+coroutine.wrap(MainLoop)()
+
+else
+	wait(15)
+	game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Travel to Trading Plaza"):InvokeServer(15502339080)
 end
