@@ -1,4 +1,4 @@
-wait(10)
+wait(30)
 if game.PlaceId == 15502339080 then
 
 local function MainLoop()
