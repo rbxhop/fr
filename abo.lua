@@ -1,12 +1,3 @@
-if game.PlaceId == 15502339080 then
-	wait(60)
-local function MainLoop()
-    while true do
-wait(20)
--- // Hops
-local function Hop()
-    loadstring(game:HttpGet('https://pastebin.com/raw/X8vE1kkP'))()
-end
 getgenv()["atrx_Sniper"] = {
     Configuration = {
         Buy_Delay_MS = 5,
@@ -110,6 +101,16 @@ getgenv()["atrx_Sniper"] = {
     },
 }
 
+if game.PlaceId == 15502339080 then
+	wait(60)
+local function MainLoop()
+    while true do
+wait(20)
+-- // Hops
+local function Hop()
+    loadstring(game:HttpGet('https://pastebin.com/raw/X8vE1kkP'))()
+end
+			
 local Plaza = getsenv(game.Players.LocalPlayer.PlayerScripts:WaitForChild("Scripts"):WaitForChild("Game"):WaitForChild("Trading Plaza"):WaitForChild("Booths Frontend"))
 local Save = require(game.ReplicatedStorage.Library.Client.Save).Get()
 local _oldFunction = clonefunction(Plaza.updateBooth)
@@ -225,12 +226,12 @@ wait(1800)  -- 30 minutes in seconds
 		Hop()
     end
 end
-	else
-	wait(15)
-	game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Travel to Trading Plaza"):InvokeServer(15502339080)
-end
+
 
 
 coroutine.wrap(MainLoop)()
 
-
+	else
+	wait(15)
+	game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Travel to Trading Plaza"):InvokeServer(15502339080)
+end
