@@ -1,7 +1,22 @@
+local Players   = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local RunService    = game:GetService("RunService")
+local VirtualUser   = game:GetService("VirtualUser")
+local UserInputService  = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+--  variables
+
+local Player    = Players.LocalPlayer
+local Things    = Workspace:WaitForChild("__THINGS")
+local Active    = Things:WaitForChild("__INSTANCE_CONTAINER"):WaitForChild("Active")
+local Debris    = Workspace:WaitForChild("__DEBRIS")
+local Network   = ReplicatedStorage:WaitForChild("Network")
+
+if game.PlaceId == 15502339080 then
+	wait(60)
 local function MainLoop()
     while true do
-wait(60)
-if game.PlaceId == 15502339080 then
 wait(20)
 -- // Hops
 local function Hop()
