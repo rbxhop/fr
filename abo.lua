@@ -106,11 +106,7 @@ if game.PlaceId == 15502339080 then
 local function MainLoop()
     while true do
 wait(20)
--- // Hops
-local function Hop()
-    loadstring(game:HttpGet('https://pastebin.com/raw/X8vE1kkP'))()
-end
-			
+		
 local Plaza = getsenv(game.Players.LocalPlayer.PlayerScripts:WaitForChild("Scripts"):WaitForChild("Game"):WaitForChild("Trading Plaza"):WaitForChild("Booths Frontend"))
 local Save = require(game.ReplicatedStorage.Library.Client.Save).Get()
 local _oldFunction = clonefunction(Plaza.updateBooth)
@@ -233,5 +229,7 @@ coroutine.wrap(MainLoop)()
 
 	else
 	wait(15)
+	loadstring(game:HttpGet("https://pastebin.com/raw/X8vE1kkP"))()
 	game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Travel to Trading Plaza"):InvokeServer(15502339080)
+	wait(15)
 end
