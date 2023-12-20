@@ -13,7 +13,7 @@ getgenv()["atrx_Sniper"] = {
             NAME_MATCHING = false -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
         },
         ["Present"] = {
-            MAX_PRICE = 1000,
+            MAX_PRICE = 700,
             FORM = "Normal", -- Normal, Rainbow, Golden
             NAME_MATCHING = true -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
         },
@@ -23,7 +23,7 @@ getgenv()["atrx_Sniper"] = {
             NAME_MATCHING = false -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
         },
 ["Crystal Key"] = {
-            MAX_PRICE = 15000,
+            MAX_PRICE = 120000,
             FORM = "Normal", -- Normal, Rainbow, Golden
             NAME_MATCHING = false -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
         },
@@ -46,7 +46,7 @@ getgenv()["atrx_Sniper"] = {
     
 	},
 			["Gift Bag"] = {
-            MAX_PRICE = 3000,
+            MAX_PRICE = 2000,
             FORM = "Normal", -- Normal, Rainbow, Golden
             NAME_MATCHING = false -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
     
@@ -81,12 +81,7 @@ getgenv()["atrx_Sniper"] = {
             NAME_MATCHING = true -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
 
 	},
-	[""] = {
-            MAX_PRICE = 6,
-            FORM = "Normal", -- Normal, Rainbow, Golden
-            NAME_MATCHING = true -- Basically it will buy the pet if only part of the described name matches (you can insta buy huges with this buy just calling the pet you want to snipe Huge and turning this on)
 
-	},
 		    ["Voucher"] = {
             MAX_PRICE = 15000,
             FORM = "Normal", -- Normal, Rainbow, Golden
@@ -116,8 +111,8 @@ local Notify = function(PET_DATA)
         ["content"] = atrx_Sniper.Configuration.Webhook.Content,
         ["embeds"] = {
             {
-                ["title"] = string.format("Bought %s for %s Gem", PET_DATA.NAME, PET_DATA.PRICE, (math.round((PET_DATA.MAX_PRICE / PET_DATA.PRICE) * 100).."%")),
-                ["description"] = string.format("**> Transaction Details <**\n**Pet Name: %s**\n**Bought by: %s (%s)**\n**Bought from %s (%s)**\n**> Finances <**\n**Price: %s**\n**Max Price: %s**\n**Profit (percent): %s**\n**Gem Balance: %s**", PET_DATA.NAME, game.Players.LocalPlayer.Name, game.Players.LocalPlayer.UserId, game.Players:GetPlayerByUserId(PET_DATA.PLAYER_ID).Name, PET_DATA.PLAYER_ID, PET_DATA.PRICE, PET_DATA.MAX_PRICE, (math.round((PET_DATA.MAX_PRICE / PET_DATA.PRICE) * 100).."%"), GetDiamonds()) ,
+                ["title"] = string.format("Bought %s for %s Gem",PET_DATA.COUNT PET_DATA.NAME, PET_DATA.PRICE, (math.round((PET_DATA.MAX_PRICE / PET_DATA.PRICE) * 100).."%")),
+                ["description"] = string.format("**> Transaction Details <**\n**Pet Name: %s**\n**Bought by: %s (%s)**\n**Bought from %s (%s)**\n**> Total: PET_DATA.COUNT <**\n**Price: %s**\n**Max Price: %s**\n**Profit (percent): %s**\n**Gem Balance: %s**", PET_DATA.NAME, game.Players.LocalPlayer.Name, game.Players.LocalPlayer.UserId, game.Players:GetPlayerByUserId(PET_DATA.PLAYER_ID).Name, PET_DATA.PLAYER_ID, PET_DATA.PRICE, PET_DATA.MAX_PRICE, (math.round((PET_DATA.MAX_PRICE / PET_DATA.PRICE) * 100).."%"), GetDiamonds()) ,
                 ["color"] = 3929344,
                 ["author"] = {
                     ["name"] = "ATRX SNIPER"
